@@ -23,19 +23,22 @@ func main() {
 	e := echo.New()
 
 	e.Use(middleware.CORSWithConfig(middleware.CORSConfig{
-		AllowOrigins: []string{"http://localhost:5173"},
-		AllowHeaders: []string{
-			echo.HeaderOrigin,
-			echo.HeaderContentType,
-			echo.HeaderAccept,
-			echo.HeaderAuthorization,
-			echo.HeaderXCSRFToken,
-		},
-		AllowMethods: []string{
-			echo.GET, echo.HEAD, echo.PUT, echo.PATCH, echo.POST, echo.DELETE,
-		},
-		AllowCredentials: true,
-	}))
+	AllowOrigins: []string{
+		"http://localhost:5173",
+		"https://management-product-5qdg.vercel.app",
+	},
+	AllowHeaders: []string{
+		echo.HeaderOrigin,
+		echo.HeaderContentType,
+		echo.HeaderAccept,
+		echo.HeaderAuthorization,
+		echo.HeaderXCSRFToken,
+	},
+	AllowMethods: []string{
+		echo.GET, echo.HEAD, echo.PUT, echo.PATCH, echo.POST, echo.DELETE,
+	},
+	AllowCredentials: true,
+}))
 
 	routes.InitRoute(e, db, v)
 
