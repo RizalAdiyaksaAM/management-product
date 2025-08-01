@@ -52,12 +52,12 @@ JWT_SECRET=your_secret_key
 go mod tidy
 go run main.go
 
-http://localhost:8080/api
+http://localhost:8080
 
 cd ../frontend
 npm install
 
-VITE_API_BASE_URL=http://localhost:8080/api
+VITE_API_BASE_URL=http://localhost:8080
 
 npm run dev
 
